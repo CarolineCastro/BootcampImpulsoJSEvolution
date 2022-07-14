@@ -1,5 +1,5 @@
 function comparaNumeros(num1, num2){
-    if(!num1 || !num2) return 'Defina dois números!';s
+    if(!num1 || !num2) return 'Defina dois números!';
 
     const PRIMEIRAFRASE = criaPrimeiraFrase(num1, num2);
     const SEGUNDAFRASE = criaSegundaFrase(num1, num2);
