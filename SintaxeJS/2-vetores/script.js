@@ -40,3 +40,32 @@ objeto.objetoInterno.objetoInterno; //acessando um dado de um objeto que está d
 var string = objeto.string; //atribuindo um valor de um objeto a uma variável
 
 var {string, boolean, objetoInterno} = objeto; //uma variável que pega td o objeto ou campos específicos
+
+
+/*APROFUNDAMENTO EM VETORES*/
+
+//Podem ser declarados como vazios.
+let array2 = [];
+
+//E como objetos
+let array3 = new Array;
+
+
+
+/*APROFUNDAMENTOS EM OBJETOS*/
+
+//Podem ser declarados vazios.
+let obj = {};
+
+//Pode ser preenchido em tempo de execução.
+obj.name = "Julia";
+obj.age = 20;
+
+//VALORES
+Object.values(obj); //retorna os valores do objeto.
+
+//CHAVES
+Object.keys(obj); //retorna as chaves do objeto.
+
+
+
