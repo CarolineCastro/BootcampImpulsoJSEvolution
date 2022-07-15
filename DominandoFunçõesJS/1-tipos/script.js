@@ -23,3 +23,16 @@ const SOMA2 = function(num1, num2){
 }
 
 const RESULT = CALC(SOMA2, 1, 2);
+
+//ARROW FUNCTIONS
+const helloWorld = () => {
+    return "Hello World";
+}
+    //ou
+const helloWorld1 = () => "Hello World";
+
+//caso tenha só uma linha, pode dispensar as chaves e o return. E caso exista apenas um parâmetro, pode dispensar os parêntes.
+//arrow functions nn fazem hosting
+//o this sempre será o obj global. Métodos para modificar seu valor nn irão funcionar
+//nn existe o objeto arguments
+//o construtor (ex: new MeuObjeto()) também não pode ser utilizado.
