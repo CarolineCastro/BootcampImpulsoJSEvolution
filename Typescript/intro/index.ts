@@ -1,28 +1,26 @@
-//types
-
-//interfaces
+//interfaces: usamos para definir contratos de estruturas de dados, de classes;
 interface IAnimal {
     nome: string;
     tipo: 'terrestre' | 'aquático';
+    domestico: boolean;
 
-    executarRugido(alturaEmDecibeis: number): void;
+   //executarRugido(alturaEmDecibeis: number): void;
 }
 
 interface IFelino extends IAnimal {
     visaoNoturna: boolean;
 }
 
-const animal: IAnimal = {
-    nome: 'Elefante',
-    tipo: 'terrestre',
-    executarRugido: (alturaEmDecibeis) => (`${alturaEmDecibeis}db`)
-
+interface ICanino extends IAnimal {
+    porte: 'pequeno' | 'medio' | 'grande';
 }
 
-animal.executarRugido('s'); //nn vai aceitar string, pois espera um tipo number
+//type: usamos para fazer junções das interfaces;
+type IDomestico = IFelino | ICanino;
 
-const felino: IFelino = {
-    nome: 'Leão',
-    tipo: "terrestre",
-    visaoNoturna: true,
+const animal: IDomestico = {
+    domestico: true,
+    nome: 'cachorro',
+    porte: 'medio',
+    tipo: 'terrestre',
 }
