@@ -114,3 +114,17 @@ $.fn.extend({
 $('body').novaFuncao();*/
 
 export const numero = 2;
+
+//OMIT
+
+interface IPessoa {
+    nome: string;
+    idade: number;
+    nacionalidade: string;
+}
+
+interface IBrasileiro extends Omit<IPessoa, 'nacionalidade'> {
+
+}
+
+//const brasileiro: IBrasileiro = {}
