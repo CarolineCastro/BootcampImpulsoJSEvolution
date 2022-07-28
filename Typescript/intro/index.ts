@@ -50,7 +50,7 @@ interface IUsuario {
 }
 
 interface IAdmin extends IUsuario {
-    cargo: 'gerente' | 'coordenador' | 'supervisor';
+    cargo: 'gerente' | 'coordenador' | 'supervisor' | 'funcionário';
 }
 
 function redirecione(usuario: IUsuario | IAdmin) { //usando a condição para aceitar dois tipos diferentes
@@ -61,5 +61,20 @@ function redirecione(usuario: IUsuario | IAdmin) { //usando a condição para ac
     //se nn redirecionar para a área do usuário
 }
 
+
+//Caracter ? para variáveis opcionais
+interface IUsuario2 {
+    id: string;
+    email: string;
+    cargo?: 'gerente' | 'coordenador' | 'supervisor' | 'funcionário';
+}
+
+function redirecionar2(usuario: IUsuario2) {
+    if (usuario.cargo){
+        //redirecionar (usuario.cargo)
+    }
+
+    //redirecionar para a área do usuário
+}
 
 
