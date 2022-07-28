@@ -62,7 +62,7 @@ function redirecione(usuario: IUsuario | IAdmin) { //usando a condição para ac
 }
 
 
-//Caracter ? para variáveis opcionais
+//CARACTER ? PARA VARIÁVEIS OPCIONAIS
 interface IUsuario2 {
     id: string;
     email: string;
@@ -77,4 +77,26 @@ function redirecionar2(usuario: IUsuario2) {
     //redirecionar para a área do usuário
 }
 
+//CRIANDO VARIÁVEIS COMM PROPRIEDADE READONLY E PRIVATE
 
+interface ICachorro{
+   nome: string;
+   idade: number;
+   parqueFav?: string;
+}
+
+type CachorroSomenteLeitura = {
+    /*+ indica que aqui sofreu modificação*/readonly [K in keyof ICachorro] /*-? remove os opcionais*/: ICachorro[K]; //para cada K no "chaveiro(keyof)" de cachorro então cachorro indexado por K
+}
+
+class MeuCachorro implements ICachorro {
+    idade;
+    nome;
+
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+}
+
+const cao = new MeuCachorro('Apolo', 14);
