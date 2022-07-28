@@ -93,10 +93,24 @@ class MeuCachorro implements ICachorro {
     idade;
     nome;
 
-    constructor(nome, idade) {
+    constructor(nome: string, idade: number) {
         this.nome = nome;
         this.idade = idade;
     }
 }
 
 const cao = new MeuCachorro('Apolo', 14);
+
+
+//COMO IMPORTAR BIBLIOTECAS COM TYPESCRIPT
+/*import $ from 'jquery';
+
+$.fn.extend({
+    novaFuncao() {
+        console.log('Chamou nova funcao');
+    }
+});
+
+$('body').novaFuncao();*/
+
+export const numero = 2;
