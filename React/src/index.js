@@ -1,8 +1,8 @@
-import React from "react"
-import ReactDOM  from "react-dom"
-import Button from "./button"
-import ComponentA from "./componentA"
-import ComponentB from "./componentB"
+import React, { Component } from "react"
+import ReactDOM /*{ render }*/  from "react-dom"
+//import Button from "./button"
+//import ComponentA from "./componentA"
+//import ComponentB from "./componentB"
 import "./styles.css"
 
 /*JSX
@@ -31,6 +31,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 */
 
+/*Componetes
 const element = 'Alguma coisa'
 const element2 = <h1>Olá Turma =D</h1>
 
@@ -53,4 +54,44 @@ function App () {
 }
 
 const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);*/
+
+class App extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            clock: 1000,
+            copo: 'água',
+        }
+    }
+
+    componentDidMount() {
+        window.setTimeout(() => {
+            this.setState({
+                copo:"suco"
+            })            
+        }, 3000);
+    }
+
+    alterarCopo = () => {
+        this.setState({
+            copo: 'refrigerante'
+        })
+    } 
+
+    render() {
+        const {clock, copo} = this.state;
+        return(
+            <div>
+                <h1>{clock}</h1>
+                <button onClick={ () => this.alterarCopo()}><h1>{copo}</h1></button>
+            </div>
+        )
+    }
+}
+
+
+const rootElement = document.getElementById ("root");
 ReactDOM.render(<App />, rootElement);
+
