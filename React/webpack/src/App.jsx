@@ -1,6 +1,7 @@
 import React from "react";
-//import Button from "./Button.js";
 
+//Renderização Condicional
+/*
 const buttonA = <button>Histórico</button>
 
 const buttonB = <button>Cadastro</button>
@@ -9,6 +10,7 @@ const hasCustomer = true;
 
 const App = () => {
 
+    
     const renderShowHistory = () => {
         return (
             <div>
@@ -54,4 +56,64 @@ const App = () => {
     );
 };
 
-export default App;
+export default App;*/
+
+//Listas e Chaves
+
+const listCostumer = [
+    {
+        id: 1,
+        name: 'Caroline Castro',
+        skills:['react', 'node', 'css', 'webpack']
+    }, 
+    {
+        id: 2,
+        name: 'Gabrielle Castro',
+        skills:['html', 'c', 'js']
+    },
+    {
+        id: 3,
+        name: 'Scheila Castro',
+        skills: ['go', 'java']
+    },
+    {
+        id: 4,
+        name: 'Beto Silva',
+        skills: ['assembly']
+    },   
+]
+
+const App = () => {
+
+    const renderSkills = (skill, id) => {
+        return(
+            <div style={{ paddingLeft: '30px'}} key={`skill-${id}`} >
+                <li>{skill}</li>
+            </div>
+        )
+    }
+
+    const renderCostumers = (costumer, id) => {
+        return(
+            <div>
+                <li key={`costumer-${id}`}>{costumer.name}</li>
+                {costumer.skills.map(renderSkills)}
+            </div>        
+        )
+    }
+
+    return (
+        <div>
+            <p>Digital Inovation One</p>
+            <p>Bem vindo a nossa aula =D</p>
+
+            <div>
+                <ul>
+                    {listCostumer.map(renderCostumers)}
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default App; 
