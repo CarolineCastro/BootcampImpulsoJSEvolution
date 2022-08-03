@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    sourcemap: true,
+    
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -16,9 +16,22 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
-            }
+            },
+            {
+                test: /\.htlm$/,
+                use: [
+                    {
+                        loader: "html-loader"
+                    }
+                ]
+            },
         ]
     },
+
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
