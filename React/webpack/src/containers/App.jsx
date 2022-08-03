@@ -1,4 +1,6 @@
 import React from "react";
+import mock from '../mock'
+import Button from "../components/Button";
 
 //Renderização Condicional
 /*const buttonA = <button>Histórico</button>
@@ -148,32 +150,10 @@ export default App;*/
 
 //Manipulando Eventos exemplo 2
 
-const listCostumer = [
-    {
-        id: 1,
-        name: 'Caroline Castro',
-        skills:['react', 'node', 'css', 'webpack']
-    }, 
-    {
-        id: 2,
-        name: 'Gabrielle Castro',
-        skills:['html', 'c', 'js']
-    },
-    {
-        id: 3,
-        name: 'Scheila Castro',
-        skills: ['go', 'java']
-    },
-    {
-        id: 4,
-        name: 'Beto Silva',
-        skills: ['assembly']
-    },   
-]
 
 const App = () => {
 
-    const handleClick = (e, id) => {
+    const handleClick = (id) => {
         console.log('deletar cliente');
         alert(`ID do cliente ${id}`)
     }
@@ -191,9 +171,7 @@ const App = () => {
             <div>
                 <li key={`costumer-${id}`}>
                     {costumer.name}
-                    <button onClick={(e) => handleClick (e, costumer.id)}>
-                        Deletar Cliente X
-                    </button>
+                    <Button onClick={() => handleClick(costumer.id)}>Deletar x</Button>
                 </li>
                 {costumer.skills.map(renderSkills)}
             </div>        
@@ -207,7 +185,7 @@ const App = () => {
 
             <div>
                 <ul>
-                    {listCostumer.map(renderCostumers)}
+                    {mock.map(renderCostumers)}
                 </ul>
             </div>
         </div>
@@ -215,3 +193,4 @@ const App = () => {
 };
 
 export default App;
+
