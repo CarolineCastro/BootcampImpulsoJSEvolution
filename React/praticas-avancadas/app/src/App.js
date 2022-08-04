@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import Button from './Component/Button'
-import Calc from './Component/Calc'
-import PhotosGallery from './Component/PhotosGallery'
+import { Button, PhotosGallery } from './Component'
+import { sanitizeString } from './commons/utils/string'
 
 function App () {
 
@@ -13,12 +12,16 @@ function App () {
     'http://placeimg.com/140/60/nature',
   ]
 
+  sanitizeString('teste')
+
   return (
     <>
      <h1>Galeria de fotos</h1>
      <PhotosGallery
         photos={photos}
      />
+     <Button>
+     </Button>
     </>
   )
 }
