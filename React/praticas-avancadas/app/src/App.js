@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { ThemeContext, themes } from './Theme'
-import Card from './Card'
+import React, { Fragment } from "react";
+
+const store = ['', '', ''];
+
+
+function Column() {
+    return(
+        <>
+            <td>Tênis</td>
+            <td>Tênis</td>
+        </>
+    );
+}
 
 function App () {
-    const [token, setToken] = useState();
-
-    useEffect(() => {
-        setTimeout(() => {
-            setToken('sgdshdsdvdd');
-        }, 4000);
-    }, [setToken]);
+    const renderColumns = (elemnet, key) => (
+        <Fragment key={`column-${key}`}>
+            <Column />
+        </Fragment>
+    );
     
     return (
-        <ThemeContext.Provider value={{ ...themes.primary, token }}>
-            <Card />
-        </ThemeContext.Provider>    
-    )
+        <table>
+            {store.map(renderColumns)}
+        </table>   
+    );
 }
 
 export default App;
