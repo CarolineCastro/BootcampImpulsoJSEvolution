@@ -1,34 +1,37 @@
-import React, { Fragment } from "react";
+import React, { Component } from "react";
+import Counter from "./Counter";
 
-const store = [{
-    type: 'Roupa'
-}, {
-    type: 'Calçado'
-}, {
-    type: 'Camiseta'
-}];
+const Buttons = ({ increment, decrement, count }) => (
+    <div>
+        <h1>Valor atual: {count} </h1>
+        <div>
+            <button onClick={increment}>Adicionar 1</button>
+        </div>
+        <div>
+            <button onClick={decrement}>Remover 1</button>
+        </div>
+    </div>
+)
 
-
-function Column({ type }) {
-    return(
-        <tr>
-            <td>{type}</td>
-        </tr>
-    );
-}
-
-function App () {
-    const renderColumns = (elemnet, key) => (
-        <Fragment key={`column-${key}`}>
-            <Column />
-        </Fragment>
-    );
+class App extends Component {
     
-    return (
-        <table>
-            {store.map(renderColumns)}
-        </table>   
-    );
+    render() {
+        return(
+            <div>
+                <Counter render={
+                    ({increment, decrement, count}) => (
+                        <Buttons
+                            increment={increment}
+                            decrement = {decrement}
+                            count={count}
+                        />
+                     )
+                    }>
+
+                </Counter>
+            </div>
+        )
+    }
 }
 
 export default App;
