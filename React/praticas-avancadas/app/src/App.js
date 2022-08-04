@@ -1,14 +1,19 @@
 import React, { Fragment } from "react";
 
-const store = ['', '', ''];
+const store = [{
+    type: 'Roupa'
+}, {
+    type: 'Calçado'
+}, {
+    type: 'Camiseta'
+}];
 
 
-function Column() {
+function Column({ type }) {
     return(
-        <>
-            <td>Tênis</td>
-            <td>Tênis</td>
-        </>
+        <tr>
+            <td>{type}</td>
+        </tr>
     );
 }
 
