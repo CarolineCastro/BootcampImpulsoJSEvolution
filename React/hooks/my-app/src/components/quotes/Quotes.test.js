@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Quotes } from './Quotes';
+import Quotes from './Quotes.js';
 
 const quote = 'test quote';
 const speaker = 'random speaker';

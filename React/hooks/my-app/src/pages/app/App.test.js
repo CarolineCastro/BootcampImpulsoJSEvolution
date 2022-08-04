@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { App } from './App';
+import App from './App.js';
 
 
 test('render the app with a button, a quote and a button', () => {

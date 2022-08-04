@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { string } from 'prop-types';
+import Button from "../button/Button";
 
 const Quotes = ({ quote, speaker }) => {
     return(
         <Wrapper>
             <Quote>{quote}</Quote>
             <Speaker> -{speaker}</Speaker>
-            <button>Quote No Jutsu</button>
+            <Button>Quote No Jutsu</Button>
        </Wrapper>      
     );
 };
