@@ -1,39 +1,38 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-function PetShop(props) {
+function PetShop (props) {
 
-    const { dogs, cats, customers, custumerName, onClick } = props;
+  const { dogs, cats, customers, customerName, onClick } = props
 
-    return (
-        <div>
-            <h1>Dogs: {dogs}</h1>
-            <h2>Cats: {cats}</h2>
-            <div>
-                Quantidade de clientes: {customers} 
-            </div>
-            <div>
-                Nome do cliente: {custumerName}
-            </div>
-            <button onClick={onClick}>Iniciar banho</button>      
-        </div>
-    )
+  return (
+    <div>
+      <h1>Dogs: {dogs}</h1>
+      <h1>Cats: {cats}</h1>
+      <div>
+        Quantidade de clientes: {customers}
+      </div>
+      <div>
+        Nome do cliente: {customerName}
+      </div>
+      <button onClick={onClick}>Iniciar banho</button>
+    </div>
+  )
 }
 
 PetShop.defaultProps = {
-    cats: 0,
-    customers: []
+  cats: 0,
+  customers: []
 }
 
 PetShop.propTypes = {
-    dogs: PropTypes.number.isRequired,
-    cats: PropTypes.number,
-    customers: PropTypes.array,
-    custumerName: PropTypes.string.isRequired, 
-    onClick: PropTypes.func.isRequired,
-    status: PropTypes.oneOf(["Completed", "Disabled"])
+  dogs: PropTypes.number.isRequired,
+  cats: PropTypes.number,
+  customers: PropTypes.array,
+  customerName: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  status: PropTypes.oneOf(["Completed", "Disabled"])
 }
 
 
-
-export default PetShop;
+export default PetShop
