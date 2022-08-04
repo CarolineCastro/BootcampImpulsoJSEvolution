@@ -1,0 +1,16 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "projeto para treinar e iniciar no node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "keywords": [
+    "javascript; node"
+  ],
+  "author": "Caroline Castro",
+  "license": "ISC"
+}
