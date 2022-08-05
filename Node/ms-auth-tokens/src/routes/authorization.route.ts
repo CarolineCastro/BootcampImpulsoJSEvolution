@@ -1,41 +1,20 @@
 import { NextFunction, Router, Request, Response } from "express";
-import ForbiddenError from "../models/errors/forbidden.error.model";
-import userRepository from "../repositories/user.repository";
 import JWT from "jsonwebtoken";
 import { StatusCodes } from "http-status-codes";
+import basicAuthenticationMiddleware from "../middlewares/basic-authentication.middleware";
+import ForbiddenError from "../models/errors/forbidden.error.model";
 
 
 
 const authorizationRoute = Router();
 
-authorizationRoute.post('/token', async(req: Request, res: Response, next: NextFunction) => {
+authorizationRoute.post('/token', basicAuthenticationMiddleware, async(req: Request, res: Response, next: NextFunction) => {
 
     try {
-
-        const authorizationHeader = req.headers['authorization'];
-
-        if(!authorizationHeader) {
-            throw new ForbiddenError('Credenciais não informadas');
-        }
-
-        const [authenticationType, token] = authorizationHeader.split(' ');
-
-        if(authenticationType !== 'Basic' || !token) {
-            throw new ForbiddenError('Tipo de autenticação inválido');
-        }
-
-        const tokenContent =Buffer.from(token, 'base64').toString('utf-8');
-
-        const [username, password] = tokenContent.split(':');
-
-        if(!username || !password) {
-            throw new ForbiddenError('Credenciais não preenchidas');
-        }
-
-        const user = await userRepository.findByUsernameAndPassword(username, password);
+        const user = req.user;
 
         if(!user) {
-            throw new ForbiddenError('Usuário ou senha inválidos!');
+            throw new ForbiddenError("Usuário não informado")
         }
 
         const jwtPayload = { username: user.username };
@@ -43,10 +22,8 @@ authorizationRoute.post('/token', async(req: Request, res: Response, next: NextF
         const secretKey = 'may_secret_key';
 
         const jwt = JWT.sign(jwtPayload, secretKey, jwtOptions);
-        
-        res.status(StatusCodes.OK).json({ token: jwt });
 
-        console.log(user);
+        res.status(StatusCodes.OK).json({ token: jwt });
         
     } catch (error) {
         next(error);
@@ -57,3 +34,4 @@ authorizationRoute.post('/token', async(req: Request, res: Response, next: NextF
 
 
 export default authorizationRoute
+
