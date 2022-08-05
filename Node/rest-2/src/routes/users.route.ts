@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import StatusCodes, { OK } from 'http-status-codes';
+import StatusCodes from 'http-status-codes';
 import userRepository from '../repositories/user.repository';
 
 const usersRoute = Router();
