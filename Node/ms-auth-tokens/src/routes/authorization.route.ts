@@ -20,6 +20,10 @@ authorizationRoute.post('/token', (req: Request, res: Response, next: NextFuncti
         if(authenticationType !== 'Basic' || !token) {
             throw new ForbiddenError('Tipo de autenticação inválido');
         }
+
+        const tokenContent =Buffer.from(token, 'base64').toString('utf-8');
+
+        console.log(tokenContent);
         
     } catch (error) {
         next(error);
