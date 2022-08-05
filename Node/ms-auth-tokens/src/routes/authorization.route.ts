@@ -23,7 +23,13 @@ authorizationRoute.post('/token', (req: Request, res: Response, next: NextFuncti
 
         const tokenContent =Buffer.from(token, 'base64').toString('utf-8');
 
-        console.log(tokenContent);
+        const [username, password] = tokenContent.split(':');
+
+        if(!username || !password) {
+            throw new ForbiddenError('Credenciais não preenchidas');
+        }
+
+        console.log(username, password);
         
     } catch (error) {
         next(error);
