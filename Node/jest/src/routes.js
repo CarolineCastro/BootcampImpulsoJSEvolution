@@ -1,19 +1,11 @@
 import { Router } from "express";
+import { usersController } from "./controllers/usersController.js";
 
 const routes = Router();
 
-const database = ['Nath'];
 
-routes.get('/users', (req, res) => {
-    return res.status(200).json(database);
-});
+routes.get('/users', usersController.listarUsuario);
 
-routes.post('/users', (req, res) => {
-    const { name } = req.body
-
-    database.push(name);
-
-    return res.status(201).json({'mensagem': `Usuário ${name} criado`});
-})
+routes.post('/users', usersController.criarUsuario);
 
 export { routes };
