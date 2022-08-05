@@ -4,7 +4,7 @@ import { makeMockResponse } from "../__mocks__/mockResponse";
 import { Request } from "express";
 import { UserController } from './UserController'
 import{ getMockUser} from '../__mocks__/mockUser';
-import { request } from "express";
+//import { request } from "express";
 
 
 const mockUser: User = getMockUser();
