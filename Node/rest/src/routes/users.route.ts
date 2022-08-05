@@ -31,7 +31,7 @@ usersRoute.put('/users/:uuid', (req: Request, res: Response, next: NextFunction)
     res.status(StatusCodes.OK).send({ uuid });
 });
 
-usersRoute.delete('/users/:uuid', (req: Request, res: Response, next: NextFunction) => {
+usersRoute.delete('/users/:uuid', (req: Request, res: Response<{ uuid: string }>, next: NextFunction) => {
     res.sendStatus(StatusCodes.OK);
 });
 
