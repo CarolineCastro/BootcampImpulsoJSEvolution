@@ -1,24 +1,24 @@
 import { Request, Response } from 'express';
-import { CreateUserService } from '../services/CreateUserService'
+import { v4 as uuid } from 'uuid';
+import { CreateUserService } from '../services/CreateUserService';
 
-class CreateUserController {
-
-    handle (req:Request, res:Response) {
+class CreateUserController{
+    async handle(request: Request, response: Response) {
 
         const createUserService = new CreateUserService();
         
-        const nome = req.body.nome;
-        const email = req.body.email;
+        const nome = request.body.nome;
+        const email = request.body.email;
+        const id = uuid();
 
         if(nome.length === 0){
-            return res.status(400).json({mensagem: 'Preencha todos os campos'});
+            return response.status(400).json({mensagem: 'Nome obrigatório'})
         }
 
-        const user = createUserService.execute({nome, email});
+        const user = await createUserService.execute({id, nome, email})
 
-        return res.status(201).json({user});
+        return response.status(201).json(user)
     }
-
 }
 
-export { CreateUserController };
+export { CreateUserController }
